@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { Button } from "ui";
+import { ReactElement } from "react";
+import { Button, Navbar } from "ui";
 
-export default function Home() {
+export function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -22,3 +23,14 @@ export default function Home() {
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement){ 
+  return (
+    <>
+      <Navbar/>
+      {page}
+    </>
+  )
+}
+
+export default Home

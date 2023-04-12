@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Button, Card } from "ui";
+import { Component, ReactElement } from "react";
+import { Button, Card, Navbar } from "ui";
 
 const CARD_CONTENT = [
   {
@@ -19,7 +20,7 @@ const CARD_CONTENT = [
   },
 ];
 
-export default function Home() {
+export function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -46,3 +47,14 @@ export default function Home() {
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement){ 
+  return (
+    <>
+      <Navbar/>
+      {page}
+    </>
+  )
+}
+
+export default Home
